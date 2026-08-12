@@ -65,6 +65,7 @@
             display: flex;
             list-style: none;
             gap: 1.2rem;
+            flex-wrap: wrap;
         }
         .nav-links a {
             color: var(--text-light);
@@ -243,7 +244,7 @@
         }
         @media (max-width: 768px) {
             .navbar { flex-direction: column; gap: 10px; padding: 1rem 4%; }
-            .nav-links { flex-wrap: wrap; justify-content: center; gap: 0.8rem; }
+            .nav-links { justify-content: center; gap: 0.8rem; }
             .hero-title { font-size: 2.4rem; }
             .hero-slogan { font-size: 1.8rem; }
             .verse-text { font-size: 1.3rem; }
@@ -263,13 +264,14 @@
         </a>
         <ul class="nav-links">
             <li><a href="{% url 'home' %}" class="active">الرئيسية</a></li>
-            <li><a href="#">آيات قرآنية</a></li>
-            <li><a href="#">المولد النبوي الشريف</a></li>
-            <li><a href="#">السيرة النبوية</a></li>
-            <li><a href="#">الصحابة الكرام</a></li>
-            <li><a href="#">موسوعة آل البيت</a></li>
-            <li><a href="#">أحاديث عن الرسول</a></li>
-            <li><a href="#">الفيديوهات</a></li>
+            <li><a href="{% url 'verses' %}">آيات قرآنية</a></li>
+            <li><a href="{% url 'mawlid' %}">المولد النبوي الشريف</a></li>
+            <li><a href="{% url 'seerah' %}">السيرة النبوية</a></li>
+            <li><a href="{% url 'sahaba' %}">الصحابة الكرام</a></li>
+            <li><a href="{% url 'ahlalbayt' %}">موسوعة آل البيت</a></li>
+            <li><a href="{% url 'hadith' %}">أحاديث عن الرسول</a></li>
+            <li><a href="{% url 'videos' %}">الفيديوهات</a></li>
+            <li><a href="{% url 'ahlalbayt' %}">موسوعة آل البيت</a></li>
         </ul>
         <div class="side-brand">
             <img src="{% static 'images/aaaaa.jpg' %}" alt="صورة إضافية" class="header-side-img">
@@ -295,44 +297,43 @@
             <p>انتقل بين أقسام المشروع للاطلاع على السيرة الرسول وآل البيت والصحابة الكرام والوسائط</p>
         </div>
         <div class="cards-grid">
-            <a href="#" class="card">
+            <a href="{% url 'seerah' %}" class="card">
                 <i class="fa-solid fa-book-quran card-icon"></i>
                 <div class="card-title">السيرة النبوية</div>
                 <div class="card-desc">محطات من حياة النبي صلى الله عليه وسلم وأخلاقه وغزواته</div>
             </a>
-            <a href="#" class="card">
+            <a href="{% url 'sahaba' %}" class="card">
                 <i class="fa-solid fa-users-rays card-icon"></i>
                 <div class="card-title">الصحابة الكرام</div>
                 <div class="card-desc">سير أصحاب رسول الله ورجال حول الرسول</div>
             </a>
-            <a href="#" class="card">
+            <a href="{% url 'ahlalbayt' %}" class="card">
                 <i class="fa-solid fa-kaaba card-icon"></i>
                 <div class="card-title">موسوعة آل البيت</div>
                 <div class="card-desc">فضائل آل بيت النبي الطاهرين ومكانتهم في الأمة</div>
             </a>
-            <a href="#" class="card">
+            <a href="{% url 'verses' %}" class="card">
                 <i class="fa-solid fa-hands-praying card-icon"></i>
                 <div class="card-title">القران الكريم</div>
                 <div class="card-desc">آيات من الذكر الحكيم نزلت في حق النبي والرسالة</div>
             </a>
-            <a href="#" class="card">
+            <a href="{% url 'hadith' %}" class="card">
                 <i class="fa-solid fa-scroll card-icon"></i>
                 <div class="card-title">أحاديث عن الرسول</div>
                 <div class="card-desc">مجموعة من الأحاديث النبوية الشريفة المأثورة</div>
             </a>
-            <a href="#" class="card">
+            <a href="{% url 'mawlid' %}" class="card">
                 <i class="fa-solid fa-kaaba card-icon"></i>
                 <div class="card-title">عن المولد النبوي</div>
                 <div class="card-desc"> مجموعة من الاقسام عن المولد النبوي </div>
             </a>
-            <a href="#" class="card">
+            <a href="{% url 'videos' %}" class="card">
                 <i class="fa-solid fa-film card-icon"></i>
                 <div class="card-title">الفيديوهات</div>
                 <div class="card-desc">معرض المرئيات والدروس المتعلقة بالسيرة العطرة</div>
             </a>
         </div>
     </section>
-
     {% endblock %}
 
     <footer>
